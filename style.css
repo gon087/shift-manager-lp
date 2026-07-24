@@ -52,7 +52,7 @@ ul { padding-left: 0; list-style: none; margin: 0; }
   justify-content: center;
   border-radius: var(--radius-lg);
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0.4, 0, 1);
   white-space: nowrap;
 }
 .btn-primary {
@@ -63,7 +63,7 @@ ul { padding-left: 0; list-style: none; margin: 0; }
 .btn-primary:hover {
   background: var(--blue-600);
   box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
 }
 .btn-outline {
   background: var(--white);
@@ -72,7 +72,7 @@ ul { padding-left: 0; list-style: none; margin: 0; }
 }
 .btn-outline:hover {
   background: var(--blue-50);
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
 }
 .btn-large { padding: 16px 32px; font-size: 1.05rem; border-radius: var(--radius-xl); }
 .btn-small { padding: 10px 20px; font-size: 0.9rem; }
@@ -193,7 +193,9 @@ ul { padding-left: 0; list-style: none; margin: 0; }
   box-shadow: var(--shadow-lg);
   padding: 20px;
   position: relative;
+  transition: transform 0.4s cubic-bezier(0.4, 0.4, 0, 1);
 }
+.hero-visual:hover .mock-card { transform: translateY(-6px); }
 .mock-card-header { display: flex; gap: 6px; margin-bottom: 14px; }
 .mock-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gray-200); }
 .mock-title { font-weight: 700; margin-bottom: 14px; color: var(--gray-800); }
@@ -238,7 +240,9 @@ section { padding: 80px 0; }
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-xl);
   padding: 28px;
+  transition: transform 0.3s cubic-bezier(0.4, 0.4, 0, 1), box-shadow 0.3s cubic-bezier(0.4, 0.4, 0, 1);
 }
+.pain-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .pain-icon { font-size: 1.8rem; margin-bottom: 12px; }
 .pain-card h3 { font-size: 1.05rem; }
 .pain-card p { font-size: 0.92rem; margin-bottom: 0; }
@@ -286,7 +290,9 @@ section { padding: 80px 0; }
   padding: 28px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--gray-200);
+  transition: transform 0.3s cubic-bezier(0.4, 0.4, 0, 1), box-shadow 0.3s cubic-bezier(0.4, 0.4, 0, 1);
 }
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .feature-icon {
   width: 44px;
   height: 44px;
@@ -423,28 +429,30 @@ section { padding: 80px 0; }
 .footer-links a:hover { opacity: 1; }
 .footer-copy { width: 100%; font-size: 0.8rem; opacity: 0.7; margin-top: 8px; }
 
-/* Motion: scroll reveal + word-mask heading animation */
+/* Motion: scroll reveal + word-mask heading animation
+   Easing (.4,.4,0,1) and short durations lifted from nob-sakuma.com's
+   production CSS bundle for a snappier, less "bouncy" feel. */
+:root { --ease-snap: cubic-bezier(0.4, 0.4, 0, 1); }
+
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(18px);
+  transition: opacity 0.45s var(--ease-snap), transform 0.45s var(--ease-snap);
 }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 .fade-in {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(10px);
+  transition: opacity 0.4s var(--ease-snap), transform 0.4s var(--ease-snap);
 }
 .fade-in.is-visible { opacity: 1; transform: none; }
 
 .char-reveal .word { display: inline-block; overflow: hidden; vertical-align: top; }
 .char-reveal .word-inner {
   display: inline-block;
-  transform: translateY(115%);
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(100%);
+  transition: transform 0.55s var(--ease-snap);
 }
 .char-reveal.is-visible .word-inner { transform: translateY(0); }
 
