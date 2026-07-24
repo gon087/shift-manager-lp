@@ -423,6 +423,56 @@ section { padding: 80px 0; }
 .footer-links a:hover { opacity: 1; }
 .footer-copy { width: 100%; font-size: 0.8rem; opacity: 0.7; margin-top: 8px; }
 
+/* Motion: scroll reveal + word-mask heading animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-in.is-visible { opacity: 1; transform: none; }
+
+.char-reveal .word { display: inline-block; overflow: hidden; vertical-align: top; }
+.char-reveal .word-inner {
+  display: inline-block;
+  transform: translateY(115%);
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.char-reveal.is-visible .word-inner { transform: translateY(0); }
+
+/* Stagger cards within a grid/list without JS bookkeeping */
+.pain-grid .reveal:nth-child(2), .feature-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
+.pain-grid .reveal:nth-child(3), .feature-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
+.feature-grid .reveal:nth-child(4) { transition-delay: 0.08s; }
+.feature-grid .reveal:nth-child(5) { transition-delay: 0.16s; }
+.feature-grid .reveal:nth-child(6) { transition-delay: 0.24s; }
+.how-steps .reveal:nth-of-type(2) { transition-delay: 0.12s; }
+.how-steps .reveal:nth-of-type(3) { transition-delay: 0.24s; }
+.faq-list .reveal:nth-child(2) { transition-delay: 0.06s; }
+.faq-list .reveal:nth-child(3) { transition-delay: 0.12s; }
+.faq-list .reveal:nth-child(4) { transition-delay: 0.18s; }
+.faq-list .reveal:nth-child(5) { transition-delay: 0.24s; }
+
+/* Header state on scroll */
+.site-header.scrolled { box-shadow: var(--shadow-md); border-bottom-color: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .fade-in, .char-reveal .word-inner {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Responsive */
 @media (max-width: 860px) {
   .nav-links { display: none; }
