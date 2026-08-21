@@ -137,28 +137,28 @@
           <tbody>
             <tr>
               <td>シフト作成にかかる時間</td>
-              <td class="col-before">数時間〜半日</td>
-              <td class="col-after">月30分程度</td>
+              <td class="col-before"><span class="ci ci-no">✕</span>数時間〜半日</td>
+              <td class="col-after"><span class="ci ci-yes">✓</span>月30分程度</td>
             </tr>
             <tr>
               <td>希望の集め方</td>
-              <td class="col-before">紙・口頭・LINEでバラバラ</td>
-              <td class="col-after">スマホで一括入力</td>
+              <td class="col-before"><span class="ci ci-no">✕</span>紙・口頭・LINEでバラバラ</td>
+              <td class="col-after"><span class="ci ci-yes">✓</span>スマホで一括入力</td>
             </tr>
             <tr>
               <td>最新版の管理</td>
-              <td class="col-before">誰が持っているか分からなくなりがち</td>
-              <td class="col-after">全員が同じ最新版を確認</td>
+              <td class="col-before"><span class="ci ci-no">✕</span>誰が持っているか分からなくなりがち</td>
+              <td class="col-after"><span class="ci ci-yes">✓</span>全員が同じ最新版を確認</td>
             </tr>
             <tr>
               <td>急な変更対応</td>
-              <td class="col-before">全体を手作業で組み直し</td>
-              <td class="col-after">該当箇所だけ調整するだけ</td>
+              <td class="col-before"><span class="ci ci-no">✕</span>全体を手作業で組み直し</td>
+              <td class="col-after"><span class="ci ci-yes">✓</span>該当箇所だけ調整するだけ</td>
             </tr>
             <tr>
               <td>必要なもの</td>
-              <td class="col-before">紙・ペン・電話・LINE</td>
-              <td class="col-after">スマホとブラウザだけ</td>
+              <td class="col-before"><span class="ci ci-no">✕</span>紙・ペン・電話・LINE</td>
+              <td class="col-after"><span class="ci ci-yes">✓</span>スマホとブラウザだけ</td>
             </tr>
           </tbody>
         </table>
@@ -173,18 +173,33 @@
       <div class="how-steps">
         <div class="how-step reveal">
           <div class="how-num">1</div>
+          <div class="step-mock step-mock-phone" aria-hidden="true">
+            <div class="step-mock-row"><span>8/24(月)</span><span class="chip chip-am">9–17</span></div>
+            <div class="step-mock-row"><span>8/25(火)</span><span class="chip chip-pm">13–21</span></div>
+            <div class="step-mock-btn">送信する</div>
+          </div>
           <h3>スタッフがスマホで希望を入力</h3>
           <p>パートさん・スタッフはスマホから、働きたい日時の希望を入力するだけ。</p>
         </div>
         <div class="how-arrow" aria-hidden="true">→</div>
         <div class="how-step reveal">
           <div class="how-num">2</div>
+          <div class="step-mock step-mock-flow" aria-hidden="true">
+            <span class="flow-chip"></span><span class="flow-chip"></span><span class="flow-chip"></span>
+            <span class="flow-arrow">→</span>
+            <span class="flow-grid"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
           <h3>自動でシフト表を作成</h3>
           <p>集まった希望をもとに、シフトマネジャーが自動でシフト表のたたき台を作成します。</p>
         </div>
         <div class="how-arrow" aria-hidden="true">→</div>
         <div class="how-step reveal">
           <div class="how-num">3</div>
+          <div class="step-mock" aria-hidden="true">
+            <div class="step-mock-row"><span class="chip chip-am">9-17</span><span class="chip chip-pm">13-21</span><span class="chip chip-am">9-17</span></div>
+            <div class="step-mock-row"><span class="chip chip-pm">13-21</span><span class="chip chip-am">9-17</span><span class="chip chip-pm">13-21</span></div>
+            <div class="step-mock-check">✓ 確定</div>
+          </div>
           <h3>確認して確定するだけ</h3>
           <p>店舗管理者は内容を確認し、必要な箇所だけ微調整して確定。作業時間は月30分ほど。</p>
         </div>
@@ -256,6 +271,11 @@
           <li>パート・アルバイトスタッフが複数名いる店舗</li>
           <li>シフト作成が属人化していて、担当者の負担が大きい店舗</li>
         </ul>
+        <div class="target-icons">
+          <div class="target-icon-item"><span class="ti-badge">🛒</span>小売店</div>
+          <div class="target-icon-item"><span class="ti-badge">✂️</span>美容室・サロン</div>
+          <div class="target-icon-item"><span class="ti-badge">👥</span>スタッフ数名〜</div>
+        </div>
       </div>
       <div class="target-badge-wrap reveal">
         <div class="target-badge">
